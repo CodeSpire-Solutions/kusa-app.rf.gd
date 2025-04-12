@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <link id="stylesheet" rel="stylesheet" href="style.css">
+    <script>
+        function checkMobile() {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                document.getElementById("stylesheet").setAttribute("href", "mobile.css");
+            } else {
+                window.location.href = "home.html"; // Redirect to main site on PC
+            }
+        }
+        function loadWebsite() {
+            window.location.href = "home.html";
+        }
+        function loadOtherWebsite() {
+            window.location.href = "https://google.com";
+        }
+        window.onload = checkMobile;
+    </script>
+</head>
+<body>
+    <h1>Welcome to My Responsive Website</h1>
+    <p>This page detects if you're on a mobile device and applies the appropriate CSS.</p>
+    <button id="loadBtn" onclick="loadWebsite()">Ignore & Load Website</button>
+    <button id="ignoreBtn" onclick="loadOtherWebsite()">Don't Load Website</button>
+</body>
+</html>
